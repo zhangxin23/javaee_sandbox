@@ -11,10 +11,23 @@
     <listener>
         <listener-class>net.coderland.javaee.TestServletRequestListener</listener-class>
     </listener>
-    
+
+    <filter>
+        <filter-name>filter_test</filter-name>
+        <filter-class>net.coderland.javaee.TestServletFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filter_test</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>test</servlet-name>
         <servlet-class>net.coderland.javaee.TestServlet</servlet-class>
+        <init-param>
+            <param-name>second</param-name>
+            <param-value>2</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
