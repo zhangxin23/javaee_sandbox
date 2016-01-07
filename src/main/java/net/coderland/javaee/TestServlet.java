@@ -1,7 +1,10 @@
 package net.coderland.javaee;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,8 +18,8 @@ import java.util.Date;
 public class TestServlet extends HttpServlet {
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        downloadFile(request, response, "test.txt");
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        cookieDemo(request, response);
     }
 
     private void htmlResponse(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -68,5 +71,24 @@ public class TestServlet extends HttpServlet {
 
         outStream.flush();
         outStream.close();
+    }
+
+    private void forwordDemo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ServletContext context = getServletConfig().getServletContext();
+        RequestDispatcher rd = context.getRequestDispatcher("/another"); //填servlet-mapping对应的url-pattern的值
+        rd.forward(request, response);
+
+//        getServletContext().getNamedDispatcher("another-test").forward(request, response); //填servlet的名字
+    }
+
+    private void redirectDemo(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.sendRedirect("www.baidu.com");
+    }
+
+    private void cookieDemo(HttpServletRequest request, HttpServletResponse response) {
+        Cookie cookie = new Cookie("cookiedemo", "123abc");
+        cookie.setHttpOnly(true);
+        cookie.setMaxAge(3600);
+        response.addCookie(cookie);
     }
 }

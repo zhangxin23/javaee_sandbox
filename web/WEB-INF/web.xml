@@ -34,4 +34,14 @@
         <servlet-name>test</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>another-test</servlet-name>
+        <servlet-class>net.coderland.javaee.TestAnotherServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>another-test</servlet-name>
+        <url-pattern>/another</url-pattern>
+    </servlet-mapping>
 </web-app>
