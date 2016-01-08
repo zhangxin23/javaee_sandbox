@@ -18,7 +18,7 @@
     </filter>
     <filter-mapping>
         <filter-name>filter_test</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/test</url-pattern>
     </filter-mapping>
 
     <servlet>
@@ -32,7 +32,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>test</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/test</url-pattern>
     </servlet-mapping>
     
     <servlet>
@@ -43,5 +43,14 @@
     <servlet-mapping>
         <servlet-name>another-test</servlet-name>
         <url-pattern>/another</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>sse-servlet</servlet-name>
+        <servlet-class>net.coderland.javaee.TestSseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sse-servlet</servlet-name>
+        <url-pattern>/sse-servlet</url-pattern>
     </servlet-mapping>
 </web-app>
