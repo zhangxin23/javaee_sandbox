@@ -48,6 +48,7 @@
     <servlet>
         <servlet-name>sse-servlet</servlet-name>
         <servlet-class>net.coderland.javaee.TestSseServlet</servlet-class>
+        <load-on-startup>3</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>sse-servlet</servlet-name>
