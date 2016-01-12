@@ -16,6 +16,7 @@ public class TestSseServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/event-stream");
+        resp.setHeader("Cache-Control", "no-cache");
         resp.setCharacterEncoding("UTF-8");
 
         PrintWriter writer = resp.getWriter();
